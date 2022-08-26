@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-
+import { useHistory } from "react-router-dom";
 
 
 function Card () {
-
+    const history = useHistory();
     return (
-        <CdContainer>
+        <CdContainer onClick={() => { history.push("/detail");}}>
             <CdDialog>
             <div>title</div>
             <>description</>
@@ -21,13 +21,18 @@ function Card () {
 export default Card;
 
 const CdContainer = styled.div`
-    border: 1px solid grey;
+    border: 1px solid #DCEDC8;
     width: 95%;
     min-width: 600px;
     height: 100px;
-    margin: 1em;
+    margin: 1em auto;
     border-radius: 8px;
-    cursor: pointer
+    background-color: white;
+    :hover {
+        background-color: #F1F8E9;
+        cursor: pointer;
+        box-shadow: 2px 2px 1px #AED581;
+    }
     `
 
 const CdDialog = styled.div`
