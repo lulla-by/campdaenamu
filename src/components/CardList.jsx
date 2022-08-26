@@ -7,7 +7,9 @@ function CardList () {
     
     return (
         <>
-        <Button>글쓰기</Button>
+        <Button
+        
+        >대나무 숲에서 외쳐봐요</Button>
         <CdListContainer>
         <Card/>
         </CdListContainer>
@@ -20,7 +22,7 @@ export default CardList;
 const CdListContainer = styled.div`
     display: block;
     flex-direction: column;
-    border: 1px solid greenyellow;
+    border: 2.5px dotted #e8f5e9;
     min-width: 600px;
     max-width: 1200px;
     height: 90vh;
