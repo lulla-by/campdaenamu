@@ -9,10 +9,10 @@ function Card () {
         <CdContainer onClick={() => { history.push("/detail");}}>
             <CdDialog>
             <div>title</div>
-            <>description</>
+            <div>description</div>
             </CdDialog>
             <CdInfo>
-            <div>작성자</div><div>작성일시</div>
+            <div>작성자: pisi</div><div>2022-01-01 00:00</div>
             </CdInfo>
         </CdContainer>
     )
@@ -42,7 +42,9 @@ const CdDialog = styled.div`
 
 const CdInfo = styled.div`
     display: flex;
-    padding: 0 1em;
+    justify-content: flex-end;
+    padding: 0 2em;
     font-size: small;
-    gap: 10px;
+    gap: 20px;
+    color: #33691E;
 `
