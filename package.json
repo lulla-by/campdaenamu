@@ -13,7 +13,10 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "5.2.1",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
     "styled-component": "^2.8.0",
+=======
+>>>>>>> c4dd46fa458d2e8b13f4d5a10a2e2c667867f0b6
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
