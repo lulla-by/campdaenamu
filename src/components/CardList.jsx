@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Card from "./Card"
 import Button from "../elem/Button"
 import { useHistory } from "react-router-dom";
+
 // import Wrapper from "../elem/Wrapper";
 
 function CardList () {
@@ -10,8 +11,10 @@ function CardList () {
     return (
         <>
         <CdWrapper> 
-        <Button onClick={() => { history.push("/add");}}>
-        대나무 숲에서 외쳐봐요!</Button>
+        <Button 
+        size="medium"
+        onClick={() => { history.push("/add");}}>
+        글쓰기</Button>
         </CdWrapper>
         <CdListContainer>
         <Card/>
