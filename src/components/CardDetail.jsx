@@ -7,23 +7,23 @@ import Button from "../elem/Button";
 function CardDetail() {
     return (
         <>
-            <DetailBox>
+            <Wrapper>
                 <h3>닉네임</h3>
                 <h3>title</h3>
                 <h3>desc</h3>
                 <Button>수정하기</Button>
                 <Button>삭제하기</Button>
-            </DetailBox>
+            </Wrapper>
 
-            <DetailBox><AddComments /></DetailBox>
-            <DetailBox><Commentlist /></DetailBox>
+            <Wrapper><AddComments /></Wrapper>
+            <Wrapper><Commentlist /></Wrapper>
         </>
     )
 }
 
 export default CardDetail;
 
-const DetailBox = styled.div`
+const Wrapper = styled.div`
 border:1px solid gray;
 border-radius: 15px;
 height: 250px;
