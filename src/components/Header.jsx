@@ -6,7 +6,7 @@ const Header = () => {
     const history = useHistory();
     return <StContainer>
                 <Stbutton onClick={() => { history.goBack("/");}}> 🏠 </Stbutton>
-                <h2>캠프 대나무숲</h2>
+                <h3>캠프 대나무숲</h3>
            </StContainer>
 }
 
@@ -16,18 +16,19 @@ const Stbutton = styled.button`
 
     padding: 0 20px;
     margin: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 
 `
 
 const StContainer = styled.div`
     
     align-items: center;
-    border: 1px solid #ddd;
+    border: 0px solid #38A3A5;
     display: flex;
-    height: 50px;
+    height: 45px;
     justify-content: space-between;
-
-    background-color: green;
-    
+    background-color:#22577A;
     padding: 10px;
 `
