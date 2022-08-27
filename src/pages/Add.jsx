@@ -13,15 +13,14 @@ function Add () {
        <>
         <Layout>
             <h2>작성자</h2>
-            <Input type={"text"} placeholder="작성자의 이름을 입력해주세요."></Input>
+            <Input type={"text"} placeholder="작성자의 이름을 입력해주세요. (5자 이내)" maxLength={5}  ></Input>
             <h2>제목</h2>
-            <Input type={"text"} placeholder="제목을 입력해주세요."></Input>
+            <Input type={"text"} placeholder="제목을 입력해주세요. (20자 이내)" maxLength={20} ></Input>
             <h2>내용</h2>
             <Textarea 
-                name="body"
                 rows="10"
                 placeholder="내용을 입력해주세요."
-            />
+                />
             
             <Butbox>
             <Button onClick={() => { history.goBack("/");}}>등록</Button>
