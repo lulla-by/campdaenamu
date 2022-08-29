@@ -7,10 +7,12 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addCard } from "../redux/modules/post"
+import { v4 as uuidv4 } from 'uuid';
 
 
 
-let number = 0;
+
+
 function Add () {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -19,7 +21,7 @@ function Add () {
     const [desc, setdesc] = useState("");
    
       
-    // console.log(useSelector((state) => state.post))   --- store의 저장된 card정보 확인.  post는 현재 사용하는 리듀서 이름
+    // console.log(useSelector((state) => state.post))   
       
     function submit() {
         
@@ -27,12 +29,12 @@ function Add () {
 
         dispatch(
           addCard({        
-          id: number + 1,
+          id: uuidv4(),
           name: name,
           title: title,
           desc: desc,
           }))
-        number++;
+        
         history.push("/");
       }
       
