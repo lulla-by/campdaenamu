@@ -1,25 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card"
 import Button from "../elem/Button"
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux/';
+import { __getPosts } from "../redux/modules/post";
 
 // import Wrapper from "../elem/Wrapper";
 
 function CardList() {
     const history = useHistory();
+    const dispatch = useDispatch();
+    const {error, cards} = useSelector((state) => state.post);
+
+    useEffect(() => {
+        dispatch(__getPosts());
+    }, [dispatch])
+
+    if (error) {
+        return <div>{error.message}</div>;
+    }
+
+    if (cards.length === 0)
+        return (
+        <div>게시글이 없습니다.</div> 
+    );
+
     return (
         <>
-            <CdWrapper>
-                <Button
-                    size="medium"
-                    onClick={() => { history.push("/add"); }}>
-                    글쓰기
-                </Button>
-            </CdWrapper>
-            <CdListContainer>
-                <Card />
-            </CdListContainer>
+        <CdWrapper> 
+        <Button 
+        size="medium"
+        onClick={() => { history.push("/add");}}>
+        글쓰기</Button>
+        </CdWrapper>
+        <CdListContainer>
+        {cards.map((card) => (
+            <Card card={card} key={card.id}/>
+            ))}
+        </CdListContainer>
         </>
     )
 }
