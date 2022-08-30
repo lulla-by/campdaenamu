@@ -1,12 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 
-
-
-function CommentCard({commnet}){
-  
+function CommentCard({ comment }) {
   return (
-    <div>{} </div>
+    <>
+      <div>닉네임 :{comment.username} </div>
+      <div>{comment.content}</div>
+    </>
   )
 }
 

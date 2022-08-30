@@ -3,21 +3,21 @@ import axios from "axios";
 
 export const __getComment = createAsyncThunk(
   "GET_COMMENT",
-  async (arg,thunkAPI)=>{
+  async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.get("http://localhost:3001/comments", arg);
-      return thunkAPI.fulfillWithValue(data);
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e);
+      const data = await axios.get("http://localhost:3001/comments");
+      console.log(data)
+      return thunkAPI.fulfillWithValue(data.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
     }
   }
-)
+);
+
 const initialState = {
-  comments: {
-    data: [],
+    comments: [],
     isLoading: false,
-    error: null,
-  },
+    error: null, 
 }
 
 export const commentCardSlice = createSlice({
@@ -29,17 +29,16 @@ export const commentCardSlice = createSlice({
     },
   },
   extraReducers: {
-    // 댓글 조회
+    [__getComment.pending]: (state) => {
+      state.isLoading = true; // 네트워크 요청이 시작되면 로딩상태를 true로 변경합니다.
+    },
     [__getComment.fulfilled]: (state, action) => {
-      state.CardId.isLoading = false;
-      state.CardId.data.push(action.payload);
+      state.isLoading = false; // 네트워크 요청이 끝났으니, false로 변경합니다.
+      state.comments = action.payload; 
     },
     [__getComment.rejected]: (state, action) => {
-      state.CardId.isLoading = false;
-      state.CardId.error = action.payload;
-    },
-    [__getComment.pending]: (state) => {
-      state.CardId.isLoading = true;
+      state.isLoading = false; // 에러가 발생했지만, 네트워크 요청이 끝났으니, false로 변경합니다.
+      state.error = action.payload; // catch 된 error 객체를 state.error에 넣습니다.
     },
   },
 });

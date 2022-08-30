@@ -7,17 +7,30 @@ import CommentCard from "./CommentCard"
 
 const CommentList = () => {
     const dispatch = useDispatch();
-    const {comments} = useSelector((state) => state.commentcard.comments);
+    const { isLoading, error, comments} = useSelector((state) => state.commentcard);
     
     useEffect(()=>{
         dispatch(__getComment());
-    },[dispatch])
+    },[dispatch]);
+    if (isLoading) {
+        return <>로딩중..</>
+    } 
+    if (error) {
+        return <>{error.message}</>
+    }
     
+    console.log(comments);
     return (
         <>   
             <StContainer>
                 <AddComments />
-                <CommentCard />          
+                {comments.map((comment) => {
+                    console.log(comment)
+                    return(
+                    <CommentCard comment={comment} key={comment.id}/>
+                    )
+                }
+                )}  
             </StContainer>
         </>
     );

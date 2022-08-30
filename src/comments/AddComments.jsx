@@ -11,11 +11,10 @@ const AddComments = () => {
     const dispatch = useDispatch();
 
     const [comment, setComment] = useState({
-        parentId:"id",
         username: "",
         content: "",
     });
-    console.log(comment)
+
     const onSubmitHandler = (event) => {
         event.preventDefault();
         if (comment.content === "" || comment.username === "") {
