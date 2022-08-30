@@ -26,7 +26,7 @@ function CardList () {
         <div>게시글이 없습니다.</div> 
     );
 
-    return (
+    return ( 
         <>
         <CdWrapper> 
         <Button 
@@ -35,9 +35,11 @@ function CardList () {
         글쓰기</Button>
         </CdWrapper>
         <CdListContainer>
-        {cards.map((card) => (
-            <Card card={card} key={card.id}/>
-            ))}
+        {cards.slice().reverse().map((card) => (
+            console.log(card),
+            <Card card={card} key={card.id}/>)
+            )}
+        
         </CdListContainer>
         </>
     )
@@ -69,10 +71,11 @@ const CdListContainer = styled.div`
     border: 2.5px dotted #e8f5e9;
     min-width: 600px;
     max-width: 1200px;
-    height: 90vh;
+    height: 100%;
     justify-content: center;
     background-color: #ffffff;
     margin: 1em;
+    box-sizing: content-box
 `;
 
 
