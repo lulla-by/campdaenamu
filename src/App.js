@@ -16,10 +16,10 @@ function App() {
         <Route path="/add" exact>
             <Add/>
         </Route>
-        <Route path="/detail" exact>
+        <Route path="/detail/:id" exact>
             <Detail/>
         </Route>
-        <Route path="/Edit" exact>
+        <Route path="/Edit/:id" exact>
             <Edit/>
         </Route>
         </>

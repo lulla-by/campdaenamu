@@ -26,7 +26,16 @@ export const postSlice = createSlice({
     addCard: (state, action) => {
       state.cards.push(action.payload);
       axios.post("http://localhost:3001/cards", action.payload );
-    }
+    },
+
+    updataCard: (state, action) => {
+
+      axios.patch(`http://localhost:3001/cards/${action.payload.id}`, action.payload)
+      },
+
+      deleteCard: (state, action) => {
+        axios.delete(`http://localhost:3001/cards/${action.payload}`);
+      }
 
    
   },
@@ -46,5 +55,5 @@ export const postSlice = createSlice({
 })
 
 
-export const { addCard } = postSlice.actions;
+export const { addCard , updataCard , deleteCard} = postSlice.actions;
 export default postSlice.reducer;

@@ -3,21 +3,58 @@ import AddComments from "../comments/AddComments";
 import Commentlist from "../comments/Commentlist";
 import styled from "styled-components";
 import Button from "../elem/Button";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux/';
+import { __getPosts } from "../redux/modules/post";
+import { useHistory } from "react-router-dom";
+import { deleteCard } from "../redux/modules/post";
+
+
+
 
 function CardDetail() {
+
+    const history = useHistory()
+    const dispatch = useDispatch();
+    const {error, cards} = useSelector((state) => state.post);
+
+    useEffect(() => {
+        dispatch(__getPosts());
+    }, [dispatch])
+
+
+    let {id} = useParams();
+    let cardIdex = cards.find(function(x){return x.id == id})
+    
+
+    const onRemove = () => {
+        if (window.confirm("정말 삭제합니까?")) {
+            alert("삭제되었습니다.");
+            dispatch(
+                deleteCard(id));
+            console.log("홈이동");
+            history.push("/")
+        } else {
+            alert("취소합니다.");
+        }
+
+    };
+    
     return (       
            <>
             <DetailBox>
-                <h3>닉네임</h3>
-                <h3>title</h3>
-                <h3>desc</h3>
-                <Button>수정하기</Button>
-                <Button>삭제하기</Button>
+                <h3>name: {cardIdex.name}</h3>
+                <h3>title: {cardIdex.title}</h3>
+                <h3>desc: {cardIdex.desc}</h3>
+                <Button onClick = {()=>{history.push(`/edit/${id}`)}}>수정하기</Button>
+                <Button onClick={() => { onRemove() }}>삭제하기</Button>
             </DetailBox>
 
             <DetailBox><Commentlist /></DetailBox>
             <DetailBox><AddComments /></DetailBox>   
             </> 
+
     )
 }
 
