@@ -95,4 +95,3 @@ const Butbox = styled.div`
     padding-top: 30px;
     
 `
-
