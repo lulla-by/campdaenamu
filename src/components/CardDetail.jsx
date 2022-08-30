@@ -5,8 +5,8 @@ import styled from "styled-components";
 import Button from "../elem/Button";
 
 function CardDetail() {
-    return (
-        <>
+    return (       
+           <>
             <DetailBox>
                 <h3>닉네임</h3>
                 <h3>title</h3>
@@ -15,9 +15,9 @@ function CardDetail() {
                 <Button>삭제하기</Button>
             </DetailBox>
 
-            <DetailBox><AddComments /></DetailBox>
             <DetailBox><Commentlist /></DetailBox>
-        </>
+            <DetailBox><AddComments /></DetailBox>   
+            </> 
     )
 }
 
