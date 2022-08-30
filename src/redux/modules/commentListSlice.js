@@ -14,6 +14,8 @@ export const __addComment = createAsyncThunk(
   }
 );
 
+
+
 const initialState = {
   comments: {
     data: [],
@@ -34,6 +36,9 @@ export const commentListSlice = createSlice({
     clearTodo: (state) => {
       state.comments = null;
     },
+    deleteComment: (state, action) => {
+      axios.delete("http://localhost:3001/comments/")
+    }
   },
   extraReducers: {
     // 댓글 추가
@@ -51,4 +56,5 @@ export const commentListSlice = createSlice({
   },
 });
 
+export const { deleteComment } = commentListSlice.actions;
 export default commentListSlice.reducer;
