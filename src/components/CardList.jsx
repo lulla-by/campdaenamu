@@ -6,26 +6,27 @@ import { useHistory } from "react-router-dom";
 
 // import Wrapper from "../elem/Wrapper";
 
-function CardList () {
+function CardList() {
     const history = useHistory();
     return (
         <>
-        <CdWrapper> 
-        <Button 
-        size="medium"
-        onClick={() => { history.push("/add");}}>
-        글쓰기</Button>
-        </CdWrapper>
-        <CdListContainer>
-        <Card/>
-        </CdListContainer>
+            <CdWrapper>
+                <Button
+                    size="medium"
+                    onClick={() => { history.push("/add"); }}>
+                    글쓰기
+                </Button>
+            </CdWrapper>
+            <CdListContainer>
+                <Card />
+            </CdListContainer>
         </>
     )
 }
 
 export default CardList;
 
-const CdWrapper= styled.div`
+const CdWrapper = styled.div`
     display: flex;
     border: 0px;
     min-width: 600px;
