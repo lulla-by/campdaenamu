@@ -23,8 +23,15 @@ function CardList () {
 
     if (cards.length === 0)
         return (
-        <div>게시글이 없습니다.</div> 
-    );
+        <>
+        <CdWrapper> 
+        <Button 
+        size="medium"
+        onClick={() => { history.push("/add");}}>글쓰기</Button>
+        </CdWrapper>
+        <CdListContainer>게시글이 없습니다.</CdListContainer>
+        </>
+    )
 
     return ( 
         <>
