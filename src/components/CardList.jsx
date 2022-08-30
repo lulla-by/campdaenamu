@@ -31,8 +31,7 @@ function CardList () {
         <CdWrapper> 
         <Button 
         size="medium"
-        onClick={() => { history.push("/add");}}>
-        글쓰기</Button>
+        onClick={() => { history.push("/add");}}>글쓰기</Button>
         </CdWrapper>
         <CdListContainer>
         {cards.slice().reverse().map((card) => (
