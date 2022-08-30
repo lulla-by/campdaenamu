@@ -1,10 +1,33 @@
 {
   "cards": [
     {
-      "id": 1,
-      "name": "lee",
-      "title": "몰라",
-      "desc": "내용"
+      "id": "bbb9b521-d436-4e9a-8242-0d349157a358",
+      "name": "ㅌ퓽ㅋㄹㅊ",
+      "title": "ㅊ픁",
+      "desc": "ㅌ츛튜튳"
     }
-  ]
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "username": "",
+      "content": ""
+    },
+    {
+      "comment": "1",
+      "username": "asd",
+      "content": "asd",
+      "id": 2
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

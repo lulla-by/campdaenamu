@@ -9,7 +9,7 @@ import { __getPosts } from "../redux/modules/post";
 
 // import Wrapper from "../elem/Wrapper";
 
-function CardList () {
+function CardList() {
     const history = useHistory();
     const dispatch = useDispatch();
     const {error, cards} = useSelector((state) => state.post);
@@ -48,7 +48,7 @@ function CardList () {
 
 export default CardList;
 
-const CdWrapper= styled.div`
+const CdWrapper = styled.div`
     display: flex;
     border: 0px;
     min-width: 600px;

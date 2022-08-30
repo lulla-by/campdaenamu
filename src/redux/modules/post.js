@@ -27,9 +27,18 @@ export const postSlice = createSlice({
       state.cards.push(action.payload);
       axios.post("http://localhost:3001/cards", action.payload );
     },
-    deleteCard: (state, action) => {
-      axios.delete(`http://localhost:3001/cards/${action.payload}`);
-    }
+
+    updataCard: (state, action) => {
+
+      axios.patch(`http://localhost:3001/cards/${action.payload.id}`, action.payload)
+      },
+
+      deleteCard: (state, action) => {
+        state.cards.splice(action.payload)
+        axios.delete(`http://localhost:3001/cards/${action.payload}`,action.payload);
+      }
+
+   
   },
   extraReducers: {
     [__getPosts.fulfilled]: (state, action) => {
@@ -43,8 +52,9 @@ export const postSlice = createSlice({
     [__getPosts.pending]: (state) => {
         state.isLoading = true;
 },
-},
-});
+  }
+})
 
-export const { addCard, deleteCard } = postSlice.actions;
+
+export const { addCard , updataCard , deleteCard} = postSlice.actions;
 export default postSlice.reducer;
