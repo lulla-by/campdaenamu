@@ -35,7 +35,6 @@ function CardList () {
         </CdWrapper>
         <CdListContainer>
         {cards.slice().reverse().map((card) => (
-            console.log(card),
             <Card card={card} key={card.id}/>)
             )}
         
