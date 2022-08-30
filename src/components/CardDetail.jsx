@@ -1,6 +1,4 @@
 import React from "react";
-import AddComments from "../comments/AddComments";
-import Commentlist from "../comments/Commentlist";
 import styled from "styled-components";
 import Button from "../elem/Button";
 import { useParams } from "react-router-dom";
@@ -9,8 +7,7 @@ import { useDispatch, useSelector } from 'react-redux/';
 import { __getPosts } from "../redux/modules/post";
 import { useHistory } from "react-router-dom";
 import { deleteCard } from "../redux/modules/post";
-
-
+import CommentList from "../comments/CommentList"
 
 
 function CardDetail() {
@@ -41,8 +38,8 @@ function CardDetail() {
 
     };
     
-    return (       
-           <>
+    return (
+        <>
             <DetailBox>
                 <h3>name: {cardIdex.name}</h3>
                 <h3>title: {cardIdex.title}</h3>
@@ -51,8 +48,8 @@ function CardDetail() {
                 <Button onClick={() => { onRemove() }}>삭제하기</Button>
             </DetailBox>
 
-            <DetailBox><Commentlist /></DetailBox>
-            <DetailBox><AddComments /></DetailBox>   
+            <CommentList />
+             
             </> 
 
     )
@@ -61,9 +58,9 @@ function CardDetail() {
 export default CardDetail;
 
 const DetailBox = styled.div`
-border:1px solid gray;
-border-radius: 15px;
-height: 250px;
-margin-top:30px;
-padding: 30px;
-`
+            border:1px solid gray;
+            border-radius: 15px;
+            height: 500px;
+            margin-top:30px;
+            padding: 30px;
+            `
