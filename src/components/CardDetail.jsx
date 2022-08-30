@@ -1,6 +1,5 @@
 import React from "react";
-import AddComments from "../comments/AddComments";
-import Commentlist from "../comments/Commentlist";
+import CommentList from "../comments/CommentList";
 import styled from "styled-components";
 import Button from "../elem/Button";
 import { useParams } from "react-router-dom";
@@ -51,8 +50,8 @@ function CardDetail() {
                 <Button onClick={() => { onRemove() }}>삭제하기</Button>
             </DetailBox>
 
-            <DetailBox><Commentlist /></DetailBox>
-            <DetailBox><AddComments /></DetailBox>   
+            <DetailBox><CommentList/></DetailBox>
+            
             </> 
 
     )
