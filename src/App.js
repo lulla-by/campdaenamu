@@ -3,6 +3,7 @@ import Home from "./pages/Home"
 import { Route } from "react-router-dom"
 import Add from "./pages/Add";
 import Detail from "./pages/Detail";
+import Edit from "./pages/Edit"
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route path="/detail" exact>
             <Detail/>
+        </Route>
+        <Route path="/Edit" exact>
+            <Edit/>
         </Route>
         </>
 
