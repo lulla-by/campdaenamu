@@ -37,7 +37,7 @@ export const commentListSlice = createSlice({
       state.comments = null;
     },
     deleteComment: (state, action) => {
-      axios.delete("http://localhost:3001/comments/")
+      axios.delete("http://localhost:3001/comments/", action.payload)
     }
   },
   extraReducers: {

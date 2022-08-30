@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { deleteComment } from "../redux/modules/commentListSlice";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+
 
 function CommentCard({ comment }) {
-  const {id} = useParams();
   
   return (
     <CommentContainer>
@@ -15,7 +13,7 @@ function CommentCard({ comment }) {
       </Comment>
       <Btns>
         <button
-          
+          onClick={()=>deleteComment(comment)}
         >삭제하기</button>
 
         <button>수정하기</button>
