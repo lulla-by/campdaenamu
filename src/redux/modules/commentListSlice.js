@@ -1,6 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+export const __getComment = createAsyncThunk(
+  "GET_COMMENT",
+  async (payload, thunkAPI) => {
+    try {
+      const data = await axios.get("http://localhost:3001/comments");
+      return thunkAPI.fulfillWithValue(data.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 
 export const __addComment = createAsyncThunk(
   "ADD_COMMENT",
@@ -14,19 +26,19 @@ export const __addComment = createAsyncThunk(
   }
 );
 
+/* export const __deleteComment = createAsyncThunk(
+  "DELETE_COMMENT",
+  async (arg, thunkAPI) => {
+    try
+  }
+) */
 
 
-const initialState = {
-  comments: {
-    data: [],
+
+const initialState = {  
+    comments: [],
     isLoading: false,
     error: null,
-  },
-  getCardById: {
-    data: [],
-    isLoading: false,
-    error: null,
-  },
 };
 
 export const commentListSlice = createSlice({
@@ -37,21 +49,36 @@ export const commentListSlice = createSlice({
       state.comments = null;
     },
     deleteComment: (state, action) => {
-      axios.delete("http://localhost:3001/comments/", action.payload)
+      axios.delete(`http://localhost:3001/comments/${action.payload}`)
     }
   },
   extraReducers: {
     // 댓글 추가
     [__addComment.fulfilled]: (state, action) => {
-      state.getCardById.isLoading = false;
-      state.getCardById.data.push(action.payload);
+      state.isLoading = false;
+      state.comments.push(action.payload);
+      console.log(action.payload)
     },
+    
     [__addComment.rejected]: (state, action) => {
-      state.getCardById.isLoading = false;
-      state.getCardById.error = action.payload;
+      state.isLoading = false;
+      state.error = action.payload;
     },
     [__addComment.pending]: (state) => {
-      state.getCardById.isLoading = true;
+      state.isLoading = true;
+    },
+
+    // 댓글 조회
+    [__getComment.pending]: (state) => {
+      state.isLoading = true; // 네트워크 요청이 시작되면 로딩상태를 true로 변경합니다.
+    },
+    [__getComment.fulfilled]: (state, action) => {
+      state.isLoading = false; // 네트워크 요청이 끝났으니, false로 변경합니다.
+      state.comments = action.payload; 
+    },
+    [__getComment.rejected]: (state, action) => {
+      state.isLoading = false; // 에러가 발생했지만, 네트워크 요청이 끝났으니, false로 변경합니다.
+      state.error = action.payload; // catch 된 error 객체를 state.error에 넣습니다.
     },
   },
 });

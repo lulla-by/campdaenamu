@@ -1,9 +1,25 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { deleteComment } from "../redux/modules/commentListSlice";
 
 
 function CommentCard({ comment }) {
+  const {id} = useParams();
+  const dispatch = useDispatch();
+  
+  const onRemove = () => {
+    if (window.confirm("정말 삭제합니까?")) {
+      alert("삭제되었습니다.");
+      dispatch(
+        deleteComment(id));
+  } else {
+      alert("취소합니다.");
+  }
+
+  }
+  
   
   return (
     <CommentContainer>
@@ -13,6 +29,7 @@ function CommentCard({ comment }) {
       </Comment>
       <Btns>
         <button
+          onClick = {()=>{onRemove()}}
         >삭제하기</button>
 
         <button>수정하기</button>

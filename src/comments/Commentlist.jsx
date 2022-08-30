@@ -1,17 +1,24 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { __getComment } from "../redux/modules/commentCardSlice";
+import { __getComment } from "../redux/modules/commentListSlice";
 import AddComments from "./AddComments";
 import CommentCard from "./CommentCard"
 
 const CommentList = () => {
     const dispatch = useDispatch();
-    const { isLoading, error, comments } = useSelector((state) => state.commentcard);
-
+    const { isLoading, error, comments } = useSelector((state) => state.commentlist);
+    const state = useSelector((state)=>state)
+    console.log(state)
+    
     useEffect(() => {
         dispatch(__getComment());
-    }, [dispatch]);
+    }, []);
+
+    useEffect(()=>{console.log(comments)},[comments]
+        
+    )
+    
     if (isLoading) {
         return <>로딩중..</>
     }
@@ -24,7 +31,7 @@ const CommentList = () => {
             <StContainer>
                 <AddComments />
                 <StCommentList>
-                    {comments.map((comment) => {
+                    {comments?.map((comment) => {
                         //console.log(comment)
                         return (
                             <CommentCard comment={comment} key={comment.id} />
