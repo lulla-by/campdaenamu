@@ -15,6 +15,8 @@ const StContainer = styled.div`
     min-width: 600px;
     max-width: 1200px;
     height: 200px;
+   
+
     /* height: ${({ ht }) => ht};
     padding: ${({ pd }) => pd};
     margin: ${({ mg }) => mg}; */
