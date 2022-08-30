@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Card from "./Card"
 import Button from "../elem/Button"
 import { useHistory } from "react-router-dom";
+import CardDetail from "./CardDetail";
 
 // import Wrapper from "../elem/Wrapper";
 
@@ -17,7 +18,10 @@ function CardList () {
         글쓰기</Button>
         </CdWrapper>
         <CdListContainer>
+
         <Card/>
+
+
         </CdListContainer>
         </>
     )

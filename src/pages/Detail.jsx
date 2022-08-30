@@ -1,12 +1,13 @@
-import React from "react";
-import CardDetail from "../components/CardDetail"
-import Header from "../components/Header";
+import React, { useState, useEffect } from "react";
+import CardDetail from "../components/CardDetail";
+
 
 function Detail() {
+
+    
     return (
         <>
-            <Header />
-            <CardDetail />
+            <CardDetail/>
         </>
     )
 }

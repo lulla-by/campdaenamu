@@ -22,6 +22,7 @@ let cardIdx = state.card.find(function(x){ return x.id == id });
 
 // let cardIdx = card.find(function(x){ return x.id == id }); 
 
+
     return (
         <Layout>
         <DetailBox>

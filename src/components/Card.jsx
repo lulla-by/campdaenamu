@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 function Card () {
     const history = useHistory();
     return (
-        <CdContainer onClick={() => { history.push("/detail");}}>
+        <CdContainer onClick={() => { history.push("/detail/");}}>
             <CdDialog>
             <div>title</div>
             <div>description</div>
