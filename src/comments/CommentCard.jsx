@@ -13,7 +13,6 @@ function CommentCard({ comment }) {
       </Comment>
       <Btns>
         <button
-          onClick={()=>deleteComment(comment)}
         >삭제하기</button>
 
         <button>수정하기</button>

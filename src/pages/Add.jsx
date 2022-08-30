@@ -27,7 +27,6 @@ function Add () {
         
         if (name ==="" || title ==="" || desc ==="") return       // 빈칸있을시 등록버튼 눌러도 실행x
 
-    
         dispatch(
           addCard({        
           id: uuidv4(),
