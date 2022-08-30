@@ -3,16 +3,20 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
 
-function Card () {
+
+function Card ( {card} ) {
     const history = useHistory();
+
     return (
-        <CdContainer onClick={() => { history.push("/detail/");}}>
+
+        <CdContainer onClick={() => { history.push(`/detail/${card.id}`);}}>
+            
             <CdDialog>
-            <div>title</div>
-            <div>description</div>
+            <div>{card.title}</div>
+            <div>{card.desc}</div>
             </CdDialog>
             <CdInfo>
-            <div>작성자: pisi</div><div>2022-01-01 00:00</div>
+            <div>작성자: {card.name}</div>
             </CdInfo>
         </CdContainer>
     )

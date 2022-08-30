@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
-import CardDetail from "../components/CardDetail";
+import React from "react";
+import CardDetail from "../components/CardDetail"
+import Layout from "../components/Layout";
+
 
 
 function Detail() {
 
+
     
     return (
-        <>
+        <Layout>
             <CardDetail/>
-        </>
+        </Layout>
+
     )
 }
 

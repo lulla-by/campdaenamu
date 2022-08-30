@@ -17,6 +17,7 @@
     "request": "^2.88.2",
     "styled-component": "^2.8.0",
     "styled-components": "^5.3.5",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

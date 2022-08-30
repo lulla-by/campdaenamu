@@ -3,40 +3,69 @@ import AddComments from "../comments/AddComments";
 import Commentlist from "../comments/Commentlist";
 import styled from "styled-components";
 import Button from "../elem/Button";
-import Layout from "./Layout";
-import "./CardDetail.css";
-import { useSelector } from "react-redux/es/exports";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 
-function CardDetail( {card}) {  //카드로 프롭스 받음
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux/';
+import { __getPosts } from "../redux/modules/post";
+import { useHistory } from "react-router-dom";
+import { deleteCard } from "../redux/modules/post";
 
 
-    let state = useSelector((state)=>state)
 
-    let {id} = useParams();
 
-let cardIdx = state.card.find(function(x){ return x.id == id }); 
 
-// let card = {card}
+function CardDetail() {
 
-// let cardIdx = card.find(function(x){ return x.id == id }); 
+    const history = useHistory()
+    const dispatch = useDispatch();
+    const { error, cards } = useSelector((state) => state.post);
+
+    useEffect(() => {
+        dispatch(__getPosts());
+    }, [dispatch])
+
+
+    let { id } = useParams();
+    let cardIdex = cards.find(function (x) { return x.id == id })
+
+    console.log(id)
+
+
+
+
+    const onRemove = () => {
+        if (window.confirm("정말 삭제합니까?")) {
+            alert("삭제되었습니다.");
+            dispatch(
+                deleteCard(id));
+            console.log("홈이동");
+            history.push("/")
+        } else {
+            alert("취소합니다.");
+        }
+
+    };
+
+
+
 
 
     return (
-        <Layout>
-        <DetailBox>
-            <h3 className="name">닉네임: {cardIdx .name}</h3>
-            <h3 className="title"> title:{cardIdx .title}  </h3>
-            <h3 className="desc">desc:<p>{cardIdx .desc}</p>  </h3>
-            <div className="btnBox">
-                <Button>수정하기</Button>
-                <Button>삭제하기</Button>
-            </div>
-        </DetailBox>
-        <DetailBox><Commentlist /></DetailBox>
-        <DetailBox><AddComments /></DetailBox>
-    </Layout>
+        <>
+            <DetailBox>
+                <h3>name: {cardIdex.name}</h3>
+                <h3>title: {cardIdex.title}</h3>
+                <h3>desc: {cardIdex.desc}</h3>
+                <Button onClick={() => { history.push(`/edit/${id}`) }}>수정하기</Button>
+                <Button onClick={() => { onRemove() }}>삭제하기</Button>
+            </DetailBox>
+
+            <DetailBox><Commentlist /></DetailBox>
+            <DetailBox><AddComments /></DetailBox>
+        </>
+
     )
 }
 
