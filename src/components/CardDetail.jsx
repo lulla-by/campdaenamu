@@ -48,7 +48,7 @@ function CardDetail( ) {
 
             </DetailBox>
 
-            <CommentList />
+            <CommentList/>
 
         </>
 
