@@ -9,13 +9,13 @@ import { useParams } from "react-router-dom";
 const CommentList = () => {
     const dispatch = useDispatch();
     const { isLoading, error, comments } = useSelector((state) => state.commentlist);
-    const state = useSelector((state)=>state)
     let { id } = useParams();
     
     useEffect(() => {
         dispatch(__getComment());
-    }, []);
+    }, [dispatch]);
 
+    useEffect(()=>{},[comments])
  
     if (isLoading) {
         return <>로딩중..</>
