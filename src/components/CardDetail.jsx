@@ -40,6 +40,7 @@ function CardDetail( ) {
     return (
         <>
             <DetailBox>
+
                 <h3>name: 
                     {cardIdex.name}
                     </h3>
@@ -53,6 +54,13 @@ function CardDetail( ) {
                 <Button
                     onClick={() => { onRemove() }}
                 >삭제하기</Button>
+
+                <h3>name: {cardIdex?.name}</h3>
+                <h3>title: {cardIdex?.title}</h3>
+                <h3>desc: {cardIdex?.desc}</h3>
+                <Button onClick = {()=>{history.push(`/edit/${id}`)}}>수정하기</Button>
+                <Button onClick={() => { onRemove() }}>삭제하기</Button>
+
             </DetailBox>
 
             <CommentList />

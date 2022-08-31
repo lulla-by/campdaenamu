@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { deleteComment } from "../redux/modules/commentListSlice";
+import { removeComment } from "../redux/modules/commentListSlice";
 
 
 function CommentCard({ comment }) {
@@ -13,7 +13,7 @@ function CommentCard({ comment }) {
     if (window.confirm("정말 삭제합니까?")) {
       alert("삭제되었습니다.");
       dispatch(
-        deleteComment(id));
+        removeComment(comment.id));
   } else {
       alert("취소합니다.");
   }
