@@ -1,10 +1,10 @@
 {
   "cards": [
     {
-      "id": "bbb9b521-d436-4e9a-8242-0d349157a358",
-      "name": "ㅌ퓽ㅋㄹㅊ",
-      "title": "ㅊ픁",
-      "desc": "ㅌ츛튜튳"
+      "id": "42c2f7e8-a1b3-419f-872f-43a289930a4a",
+      "name": "asgsd",
+      "title": "gsga",
+      "desc": "gfdgdfg"
     }
   ],
   "comments": [
@@ -19,15 +19,5 @@
       "content": "asd",
       "id": 2
     }
-  ],
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

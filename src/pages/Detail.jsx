@@ -6,11 +6,10 @@ import Layout from "../components/Layout";
 
 function Detail() {
 
-
     
     return (
         <Layout>
-            <CardDetail/>
+            <CardDetail />                    
         </Layout>
 
     )
