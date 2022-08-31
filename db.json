@@ -1,22 +1,17 @@
 {
   "cards": [
     {
-      "id": "916d17df-cf55-44d8-ae47-e253b8380b7b",
-      "name": "하이",
-      "title": "ss",
-      "desc": "ss"
+      "id": 1,
+      "name": "pisi",
+      "title": "오늘 재미있는 일이 있었어요",
+      "desc": "무슨 일일까요?"
     },
     {
-      "id": "48c201f0-7a3c-47e0-9b38-a11efdc46ec7",
-      "name": "이",
-      "title": "이이",
-      "desc": "이이"
-    },
-    {
-      "id": "bc64bc31-a932-4cdc-bf5e-1bd35f59ac0b",
-      "name": "ㅈㅂㄷ",
-      "title": "asd",
-      "desc": "asd"
+      "id": "c932fdd4-13f5-4553-99ce-18112cc0e014",
+      "name": "asd",
+      "title": "asdf",
+      "desc": "asdf"
     }
-  ]
+  ],
+  "comments": []
 }

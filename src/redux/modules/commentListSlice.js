@@ -48,9 +48,12 @@ export const commentListSlice = createSlice({
     clearTodo: (state) => {
       state.comments = null;
     },
-    deleteComment: (state, action) => {
-      axios.delete(`http://localhost:3001/comments/${action.payload}`)
-    }
+    removeComment(state, action){
+      const index = state.comments.findIndex(comments =>  comments.id === action.payload);
+      state.comments.splice(index,1);
+      console.log(action.payload)
+      axios.delete(`http://localhost:3001/comments/${action.payload}`);
+  }
   },
   extraReducers: {
     // 댓글 추가
@@ -83,5 +86,5 @@ export const commentListSlice = createSlice({
   },
 });
 
-export const { deleteComment } = commentListSlice.actions;
+export const { removeComment } = commentListSlice.actions;
 export default commentListSlice.reducer;
