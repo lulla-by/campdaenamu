@@ -34,8 +34,9 @@ function Add () {
           title: title,
           desc: desc,
           }))
-        
+          
         history.push("/");
+        window.location()
       }
       
 
